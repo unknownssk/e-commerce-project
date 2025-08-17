@@ -41,7 +41,7 @@ function App() {
   
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/e-commerce-project">
         <nav className="nav">
           <div><Link to="/"><p className="nav-link">Home</p></Link></div>
           <div><Link to="/products"><p className="nav-link">Products</p></Link></div>
