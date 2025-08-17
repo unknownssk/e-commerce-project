@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+:root{
+  --accent: #f97316; /* orange-500 */
+  --accent-600: #ea580c; /* orange-600 */
+  --muted: #94a3b8; /* zinc-ish */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  @apply bg-neutral-100 font-sans text-neutral-800 antialiased;
+}
+
+/* ---------- nav ---------- */
+nav, .nav {
+  @apply bg-white h-14 px-4 flex gap-4 justify-evenly items-center shadow-sm sticky top-0 z-50;
+}
+
+nav div {
+  @apply w-full flex justify-center;
+}
+
+nav a, nav p, .nav-link {
+  @apply text-orange-900 font-semibold text-lg transition-transform duration-200;
+}
+
+nav p, .nav-link {
+  @apply cursor-pointer hover:text-[color:var(--accent)] hover:-translate-y-1;
+}
+
+/* ---------- Header ---------- */
+.header {
+  @apply w-full text-neutral-50 h-56 p-6 mb-6 flex flex-col justify-center items-center;
+  background-image: linear-gradient(90deg, rgba(249,115,22,1) 0%, rgba(234,88,12,1) 60%, rgba(81,85,91,0.9) 100%);
+  background-blend-mode: multiply;
+}
+
+.title {
+  @apply text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-wide mb-1;
+}
+
+.description {
+  @apply text-base md:text-xl lg:text-2xl font-light;
+}
+
+
+.shop {
+  @apply inline-block bg-[color:var(--accent)] hover:bg-[color:var(--accent-600)] text-white text-sm px-3 py-1 rounded-full shadow-sm transition;
+  @apply cursor-pointer;
+}
+
+.container {
+  @apply max-w-6xl mx-auto px-4;
+}
+
+.main {
+  @apply flex flex-row flex-wrap p-4 justify-around gap-8;
+}
+
+/* ---------- filter ---------- */
+.label {
+  @apply text-lg pl-2 pr-2 mb-2 block;
+}
+
+.filter {
+  @apply text-lg border border-zinc-300 rounded-lg px-3 py-2 w-44 text-center appearance-none bg-white shadow-sm;
+  @apply cursor-pointer;
+}
+
+
+.filter {
+  background-image: linear-gradient(45deg, transparent 50%, #111 50%), linear-gradient(135deg, #111 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 3.5rem;
+}
+
+/* ---------- Products cards ---------- */
+.filtered {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4;
+}
+
+.allProducts {
+  @apply bg-white rounded-2xl shadow-md p-4 text-center transition-transform transform hover:scale-[1.03] hover:shadow-lg border border-transparent;
+  will-change: transform;
+  @apply cursor-pointer;
+}
+
+
+.product-img, .allProducts img {
+  @apply w-full h-48 object-contain p-2 mb-3;
+  max-height: 220px;
+}
+
+.product-title, .allProducts h3 {
+  @apply text-sm md:text-base font-medium mb-2 line-clamp-2;
+}
+
+/* price & add to cart */
+.price {
+  @apply text-lg font-semibold text-[color:var(--accent)];
+}
+
+.cart {
+  @apply inline-block bg-[color:var(--accent)] text-white px-4 py-2 rounded-full mt-3 transition shadow-sm hover:bg-[color:var(--accent-600)];
+  @apply cursor-pointer;
+}
+
+/* small screens */
+@media (max-width: 420px) {
+  .allProducts { @apply p-3; }
+  .allProducts img { @apply h-40; }
+}
+
+/* ---------- Cart ---------- */
+.cart-item {
+  @apply flex flex-row gap-4 items-start bg-white rounded-lg p-3 shadow-sm mb-4;
+}
+
+.cart-item img {
+  @apply w-28 h-28 object-contain rounded-md;
+  @apply cursor-pointer;
+}
+
+.cart-item .meta {
+  @apply flex-1;
+}
+
+.cart-item h3 {
+  @apply text-base font-semibold;
+}
+
+.cart-item p { @apply text-sm text-neutral-600; }
+
+/* ----------- buttons -----------*/
+.btn-qty {
+  @apply inline-flex items-center justify-center w-9 h-9 rounded-full border border-zinc-300 bg-white transition hover:bg-zinc-50;
+  @apply cursor-pointer;
+}
+
+.btn-remove {
+  @apply text-sm px-3 py-1 rounded-md bg-red-50 text-red-600 border border-red-100 hover:bg-red-100;
+  @apply cursor-pointer;
+}
+
+/* total & checkout */
+.checkout {
+  @apply bg-[color:var(--accent)] text-white px-6 py-2 rounded-full mt-6 hover:bg-[color:var(--accent-600)] transition shadow;
+  @apply cursor-pointer;
+}
+
+/* ---------- Checkout page ---------- */
+.checkinfo {
+  @apply mb-6;
+}
+
+.checkout-item {
+  @apply bg-white rounded-md p-3 shadow-sm mb-3 flex gap-3 items-center;
+}
+
+.checkout-item img {
+  @apply w-20 h-20 object-contain;
+  @apply cursor-pointer;
+}
+
+/* ----------- form ----------- */
+.checkform {
+  @apply bg-white p-6 rounded-xl shadow-md max-w-2xl;
+}
+
+.checkform input, .checkform select, .checkform textarea {
+  @apply w-full border border-zinc-300 rounded-md px-3 py-2 my-2 focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)] transition;
+  background-color: #fff;
+}
+
+.checkform button[type="submit"] {
+  @apply bg-[color:var(--accent)] text-white px-5 py-2 rounded-full mt-3 hover:bg-[color:var(--accent-600)] transition;
+  @apply cursor-pointer;
+}
+
+.checkform .back {
+  @apply mx-3 inline-block bg-neutral-100 text-neutral-800 px-4 py-2 rounded-md border border-zinc-200 hover:bg-neutral-50;
+  @apply cursor-pointer;
+}
+
+.checkform small {
+  @apply text-xs text-red-600;
+}
+
+/* ---------- Alert ---------- */
+.alert {
+  @apply text-center py-20 text-xl;
+}
+
+/* ---------- Loading ---------- */
+.loading {
+  @apply flex justify-center items-center h-60;
+}
+
+.spinner {
+  @apply w-14 h-14 rounded-full border-4 border-[color:var(--accent)] border-t-transparent animate-spin;
+}
+
+.loading-full {
+  @apply flex items-center justify-center fixed inset-0 bg-white/80 z-50;
+}
+
+.text-muted { @apply text-neutral-500; }
+.card { @apply bg-white rounded-xl shadow p-4; }
+
+a:focus, button:focus, input:focus {
+  @apply outline-none ring-2 ring-[color:var(--accent)] ring-offset-2 rounded-md;
+}
+
+
+.hidden-mobile { @apply hidden sm:block; }
+.center { @apply flex items-center justify-center; }
+
+
