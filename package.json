@@ -25,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postbuild": "cp build/index.html build/404.html",
+    "postbuild": "xcopy build\\index.html build\\404.html /Y",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build:css": "tailwindcss -i ./src/style/input.css -o ./src/style/style.css --minify",
